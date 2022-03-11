@@ -18,7 +18,6 @@ public class CameraLook : MonoBehaviour
     {
         if(lastMouse != Input.mousePosition)
         {
-            Debug.Log("Updating View");
             lastMouse = Input.mousePosition - lastMouse;
             lastMouse = new Vector3(-lastMouse.y * camSense, lastMouse.x * camSense, 0);
             lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
