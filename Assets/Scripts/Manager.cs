@@ -28,6 +28,8 @@ public class Manager : MonoBehaviour
     // These are the font sizes as determined in the google sheet file
     private int[] LetterSizes = { 45, 22, 16, 11, 9, 7, 6, 5, 4, 3, 2};
 
+    private Vector3[] RowPositions = new Vector3[11];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +67,13 @@ public class Manager : MonoBehaviour
         ColorObject = "Background";
         ChangeColor("White");
 
+        // Make sure the menu is on the correct page
+        ToMainMenu();
+
+        for (int q = 0; q < AllStrings.Length; q++)
+        {
+            RowPositions[q] = TopRowRectTransform - new Vector3(0f, 0.1f, 0f) * q;
+        }
 
         for (int j = 0; j < AllStrings.Length; j++)
         {
@@ -76,10 +85,10 @@ public class Manager : MonoBehaviour
 
         for(int i = 0; i < AllText.Length; i++)
         {
-            Vector3 RowOffset = new Vector3(0f, 0.1f, 0f) * i;
+
             AllText[i].text = AllStrings[i];
             AllText[i].fontSize = LetterSizes[i];
-            AllText[i].GetComponent<RectTransform>().position = TopRowRectTransform -RowOffset;
+            AllText[i].GetComponent<RectTransform>().position = RowPositions[i];
         }
     }
 
