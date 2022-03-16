@@ -34,6 +34,7 @@ public class Manager : MonoBehaviour
 
     // Text Objects that correspond to the different chart rows.
     public TMP_Text Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten;
+    public TMP_Text[] test;
     // This string will be broken up to obtain our random letters
     private string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     // Create empty strings to hold the text contents of the rows.
