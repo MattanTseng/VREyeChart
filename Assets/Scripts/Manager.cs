@@ -9,16 +9,7 @@ public class Manager : MonoBehaviour
     public GameObject ChartCanvas;
     // The canvas that has the menu and color change options
     public GameObject SettingsCanvas;
-    // The button that refreshes the letter content
-    public GameObject RefreshLettersButton;
-    // The button that opens the color menu for the letters
-    public GameObject LetterColorsButton;
-    // The button that opens the color menu for the background
-    public GameObject BackgroundColorsButton;
-    // The parent that holds all of the color buttons
-    public GameObject ColorButtonParent;
-    // The button to return to the main menu
-    public GameObject MainMenuButton;
+    
     // The image that indicates which row is selected
     public GameObject RowIndicator;
     // The drop down menu used to select the row (on the chartcanvas)
@@ -87,11 +78,6 @@ public class Manager : MonoBehaviour
         ColorObject = "Background";
         ChangeColor("White");
 
-        // Make sure the menu is on the correct page
-        ToMainMenu();
-
-        // Make sure the indicator is in the correct position
-        RefreshIndicator();
 
         // Create a list of positions referenced from the top row and iterating down.
         for (int q = 0; q < AllStrings.Length; q++)
@@ -111,20 +97,12 @@ public class Manager : MonoBehaviour
         // if the user changes which row is selected, move the arrow
         if (RowDropDown.value != SelectedRow)
         {
-            RefreshIndicator();
+            SelectedRow = RowDropDown.value;
+            // call the function from the script attached to the indicator object
+            RowIndicator.GetComponent<IndicatorManager>().RefreshIndicator(RowPositions[SelectedRow]);
         }
     }
 
-    // This function checks the value of the dropdown and moves the indicator to the correct row.
-    private void RefreshIndicator()
-    {
-        // update index
-        SelectedRow = RowDropDown.value;
-        // Use that index to get a value for a position that was previously determined
-        Vector3 IndicatorPosition = RowPositions[SelectedRow] + new Vector3(0.1f, 0f, 0f);
-        // Move to that position
-        RowIndicator.GetComponent<RectTransform>().position = IndicatorPosition;
-    }
 
 
     // This function takes a list of strings and applies them to all of our text rows
@@ -163,44 +141,6 @@ public class Manager : MonoBehaviour
         return Row;
     }
 
-    // The letter color menu and background color menu are basically the same thing. 
-    // The only difference is that each function changes the value of the color object string. 
-    // The value of the colorobject determines what the color buttons modify.
-    // Go to the menu that has the color options
-    public void LetterColorMenu()
-    {
-        ColorObject = "Letters";
-        RefreshLettersButton.SetActive(false);
-        LetterColorsButton.SetActive(false);
-        BackgroundColorsButton.SetActive(false);
-        MainMenuButton.SetActive(true);
-        ColorButtonParent.SetActive(true);
-    }
-
-    // go to the menu that has the color options.
-    public void BackgroundColorMenu()
-    {
-        // This state will be used to determine which colors to edit
-        ColorObject = "Background";
-        // Now hide the other menu buttons
-        RefreshLettersButton.SetActive(false);
-        LetterColorsButton.SetActive(false);
-        BackgroundColorsButton.SetActive(false);
-        MainMenuButton.SetActive(true);
-        ColorButtonParent.SetActive(true);
-        ColorButtonParent.transform.GetChild(0).gameObject.SetActive(true);
-        
-    }
-    
-    // go to the main menu page
-    public void ToMainMenu()
-    {
-        RefreshLettersButton.SetActive(true);
-        LetterColorsButton.SetActive(true);
-        BackgroundColorsButton.SetActive(true);
-        MainMenuButton.SetActive(false);
-        ColorButtonParent.SetActive(false);
-    }
 
     // This function will be called for all the color buttons
     // Each button passes a string to the function. 
