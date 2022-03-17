@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 //[Serializable]
 public class TextPreset
 {
     public int FontSize;
-    public string FontName;
+    public TMP_FontAsset TextFont;
     public string TextContent;
     public Color TextColor;
 }

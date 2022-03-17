@@ -85,10 +85,6 @@ public class Manager : MonoBehaviour
             RowPositions[q] = TopRowRectTransform - new Vector3(0f, 0.1f, 0f) * q;
             AllText[q].GetComponent<RectTransform>().position = RowPositions[q];
         }
-
-
-        // give each row values and letters
-        RefreshLetters();
     }
 
     // Update is called once per frame
@@ -103,43 +99,6 @@ public class Manager : MonoBehaviour
         }
     }
 
-
-
-    // This function takes a list of strings and applies them to all of our text rows
-    public void RefreshLetters()
-    {
-        // Update the list of strings
-        for (int j = 0; j < AllStrings.Length; j++)
-        {
-            AllStrings[j] = NewLetters(j);
-        }
-
-        // Apply these new strings to our rows.
-        for (int i = 0; i < AllText.Length; i++)
-        {
-            AllText[i].text = AllStrings[i];
-            AllText[i].fontSize = LetterSizes[i];
-
-        }
-    }
-
-    // This function returns a string of n random characters
-    private string NewLetters(int strlength)
-    {
-        // The passed int will tell the function how many characters to include
-        string Row = null;
-        for (int i = 0; i < strlength+1; i++)
-        {
-            Row += Alphabet[Random.Range(0, Alphabet.Length)].ToString();
-            // If there is more than one character then insert a "  " inbetween the characters
-            if(i >= 0)
-            {
-                Row += "  ";
-            }
-        }
-        // Function outputs the string value
-        return Row;
-    }
 
 
     // This function will be called for all the color buttons
