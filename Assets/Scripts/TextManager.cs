@@ -15,9 +15,9 @@ public class TextManager : MonoBehaviour
 
     private Vector3 CanvasScale;
     private string[] ChartContent;
-    private TextPreset[] TextSettings;
     private int[] FontSizes;
     private TextPreset[] TextPresets;
+    
 
 
     private void Start()
@@ -26,37 +26,40 @@ public class TextManager : MonoBehaviour
         // In order for the math to work, the y and x scales of the canvas must be equal
         if(CanvasScale.x != CanvasScale.y)
         {
-            Debug.Log("WARNING: Canvas is not scaled correctly.");
+            Debug.Log("WARNING: Canvas MUST be a square");
         }
 
         // Create a list of strings that increases by 1 letter
         ChartContent = NewStringContent(RowObjects.Length);
         // creates a list of integers to be used as the font size of the letters.
         FontSizes = this.GetComponent<PxCalculator>().CalculatePx(Distances, CanvasScale);
+        UpdateTextClass(TextPresets, FontSizes, SelectedFont, ChartContent, SelectedColor);
+        PublishChartClass(TextPresets, RowObjects);
+    
+    
     }
 
-    public void UpdateChartClass()
+    public void UpdateTextClass(TextPreset[] Preset, int[] Size, TMP_FontAsset Font, string[] Content, Color TextColor)
     {
-        for(int i = 0; i < TextPresets.Length; i++)
+        for(int i = 0; i < Preset.Length; i++)
         {
             // send information to the class.
-            TextPresets[i].FontSize = FontSizes[i];
-            TextPresets[i].TextFont = SelectedFont;
-            TextPresets[i].TextContent = ChartContent[i];
-            TextPresets[i].TextColor = SelectedColor;
+            Preset[i].FontSize = Size[i];
+            Preset[i].TextFont = Font;
+            Preset[i].TextContent = Content[i];
+            Preset[i].TextColor = SelectedColor;
         }
-        
     }
 
-    private void PublishChartClass()
+    public void PublishChartClass(TextPreset[] Preset, TMP_Text[] TextObjs)
     {
         // publish the information in the text class so that the user can see it.
-        for(int i =0; i < TextPresets.Length; i++)
+        for(int i =0; i < Preset.Length; i++)
         {
-            RowObjects[i].fontSize = TextPresets[i].FontSize;
-            RowObjects[i].text = TextPresets[i].TextContent;
-            RowObjects[i].font = TextPresets[i].TextFont;
-            RowObjects[i].color = TextPresets[i].TextColor;
+            TextObjs[i].fontSize = Preset[i].FontSize;
+            TextObjs[i].text = Preset[i].TextContent;
+            TextObjs[i].font = Preset[i].TextFont;
+            TextObjs[i].color = Preset[i].TextColor;
         }
     }
 
