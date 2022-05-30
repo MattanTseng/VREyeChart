@@ -16,7 +16,12 @@ public class TextManager : MonoBehaviour
     private Vector3 CanvasScale;
     private string[] ChartContent;
     private int[] FontSizes;
+<<<<<<< HEAD
     //private TextPreset[] TextPresets;
+=======
+    private TextPreset[] TextPresets;
+    
+>>>>>>> 9927f351b3ef53805ae076a9efab0d7225e18899
 
 
     private void Start()
@@ -28,7 +33,11 @@ public class TextManager : MonoBehaviour
 
         if(CanvasScale.x != CanvasScale.y)
         {
+<<<<<<< HEAD
             Debug.Log("WARNING: Canvas is not scaled correctly. Must be a square.");
+=======
+            Debug.Log("WARNING: Canvas MUST be a square");
+>>>>>>> 9927f351b3ef53805ae076a9efab0d7225e18899
         }
 
         // Create a list of strings that increases by 1 letter
@@ -36,6 +45,7 @@ public class TextManager : MonoBehaviour
 
         // creates a list of integers to be used as the font size of the letters.
         FontSizes = this.GetComponent<PxCalculator>().CalculatePx(Distances, CanvasScale);
+<<<<<<< HEAD
 
         TextPresets = UpdateChart(FontSizes, SelectedFont, ChartContent, SelectedColor);
 
@@ -79,14 +89,42 @@ public class TextManager : MonoBehaviour
     }
 
     private void PublishChartClass(TextPreset[] Preset, TMP_Text[] Row)
+=======
+        UpdateTextClass(TextPresets, FontSizes, SelectedFont, ChartContent, SelectedColor);
+        PublishChartClass(TextPresets, RowObjects);
+    
+    
+    }
+
+    public void UpdateTextClass(TextPreset[] Preset, int[] Size, TMP_FontAsset Font, string[] Content, Color TextColor)
+    {
+        for(int i = 0; i < Preset.Length; i++)
+        {
+            // send information to the class.
+            Preset[i].FontSize = Size[i];
+            Preset[i].TextFont = Font;
+            Preset[i].TextContent = Content[i];
+            Preset[i].TextColor = SelectedColor;
+        }
+    }
+
+    public void PublishChartClass(TextPreset[] Preset, TMP_Text[] TextObjs)
+>>>>>>> 9927f351b3ef53805ae076a9efab0d7225e18899
     {
         // publish the information in the text class so that the user can see it.
         for(int i =0; i < Preset.Length; i++)
         {
+<<<<<<< HEAD
             Row[i].fontSize = Preset[i].FontSize;
             Row[i].text = Preset[i].TextContent;
             Row[i].font = Preset[i].TextFont;
             Row[i].color = Preset[i].TextColor;
+=======
+            TextObjs[i].fontSize = Preset[i].FontSize;
+            TextObjs[i].text = Preset[i].TextContent;
+            TextObjs[i].font = Preset[i].TextFont;
+            TextObjs[i].color = Preset[i].TextColor;
+>>>>>>> 9927f351b3ef53805ae076a9efab0d7225e18899
         }
     }
     
