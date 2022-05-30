@@ -15,51 +15,81 @@ public class TextManager : MonoBehaviour
 
     private Vector3 CanvasScale;
     private string[] ChartContent;
-    private TextPreset[] TextSettings;
     private int[] FontSizes;
-    private TextPreset[] TextPresets;
+    //private TextPreset[] TextPresets;
 
 
     private void Start()
     {
+
+        TextPreset[] TextPresets = new TextPreset[RowObjects.Length];
         CanvasScale = TextCanvas.GetComponent<RectTransform>().localScale;
         // In order for the math to work, the y and x scales of the canvas must be equal
+
         if(CanvasScale.x != CanvasScale.y)
         {
-            Debug.Log("WARNING: Canvas is not scaled correctly.");
+            Debug.Log("WARNING: Canvas is not scaled correctly. Must be a square.");
         }
 
         // Create a list of strings that increases by 1 letter
         ChartContent = NewStringContent(RowObjects.Length);
+
         // creates a list of integers to be used as the font size of the letters.
         FontSizes = this.GetComponent<PxCalculator>().CalculatePx(Distances, CanvasScale);
+
+        TextPresets = UpdateChart(FontSizes, SelectedFont, ChartContent, SelectedColor);
+
+        PublishChartClass(TextPresets, RowObjects);
     }
 
-    public void UpdateChartClass()
+    //Update all attributes in one row
+    public TextPreset UpdateRow(int Size, TMP_FontAsset Font, string Content, Color color)
     {
-        for(int i = 0; i < TextPresets.Length; i++)
-        {
-            // send information to the class.
-            TextPresets[i].FontSize = FontSizes[i];
-            TextPresets[i].TextFont = SelectedFont;
-            TextPresets[i].TextContent = ChartContent[i];
-            TextPresets[i].TextColor = SelectedColor;
-        }
-        
+        TextPreset NewText = new TextPreset(Size, Font, Content, color);
+        return NewText;
+    }
+    //Update text content in one row
+    public TextPreset UpdateRowContent(string Content)
+    {
+
+        TextPreset NewContent = new TextPreset(Content);
+        return NewContent;
+
     }
 
-    private void PublishChartClass()
+    //Update all attributes in whole chart
+    public TextPreset[] UpdateChart(int[] Size, TMP_FontAsset Font, string[] Content, Color color)
+    {
+        TextPreset[] NewChart = new TextPreset[Content.Length];
+        for(int i = 0; i < Content.Length; i++)
+        {
+            NewChart[i] = UpdateRow(Size[i], Font, Content[i], color);
+        }
+        return NewChart;
+    }
+    //Update text content in whole chart
+    public TextPreset[] UpdateChartContent(string[] Content)
+    {
+        TextPreset[] NewChart = new TextPreset[Content.Length];
+        for (int i = 0; i < Content.Length; i++)
+        {
+            NewChart[i] = UpdateRowContent(Content[i]);
+        }
+        return NewChart;
+    }
+
+    private void PublishChartClass(TextPreset[] Preset, TMP_Text[] Row)
     {
         // publish the information in the text class so that the user can see it.
-        for(int i =0; i < TextPresets.Length; i++)
+        for(int i =0; i < Preset.Length; i++)
         {
-            RowObjects[i].fontSize = TextPresets[i].FontSize;
-            RowObjects[i].text = TextPresets[i].TextContent;
-            RowObjects[i].font = TextPresets[i].TextFont;
-            RowObjects[i].color = TextPresets[i].TextColor;
+            Row[i].fontSize = Preset[i].FontSize;
+            Row[i].text = Preset[i].TextContent;
+            Row[i].font = Preset[i].TextFont;
+            Row[i].color = Preset[i].TextColor;
         }
     }
-
+    
 
 
     public string[] NewStringContent(int numRows)
@@ -68,7 +98,7 @@ public class TextManager : MonoBehaviour
         // this is the string that we will pull random letters from.
         string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        for (int i = 0; i < numRows; i++)
+        for (int i = 1; i <= numRows; i++)
         {
             // re-initialize the string to clear it
             string row = null;
@@ -80,7 +110,7 @@ public class TextManager : MonoBehaviour
                 row += "  ";
               
             }
-            TextContent[i] = row;
+            TextContent[i-1] = row;
 
         }
 
