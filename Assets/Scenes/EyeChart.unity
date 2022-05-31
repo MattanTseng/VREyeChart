@@ -214,7 +214,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19377823}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7439aa05853b67c42bf79bc86f89cef8, type: 3}
   m_Name: 
@@ -420,7 +420,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 588, y: -300}
+  m_AnchoredPosition: {x: 230, y: -280}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &102751885
@@ -4472,7 +4472,6 @@ MonoBehaviour:
   RowParent: {fileID: 1320745940}
   RowTransforms: []
   OldPosition: {x: 0, y: 0, z: 0}
-  RowPositions: []
   SelectedRow: 0
   RowDropDown: {fileID: 2143625443}
 --- !u!4 &1010529503
@@ -7608,13 +7607,13 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010529501}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1010529502}
+        m_TargetAssemblyTypeName: IndicatorManager, Assembly-CSharp
+        m_MethodName: UpdateIndicator
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

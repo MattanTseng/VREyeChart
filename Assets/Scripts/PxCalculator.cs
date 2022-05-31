@@ -7,7 +7,7 @@ public class PxCalculator : MonoBehaviour
     // Enter the distance in feet
     public int[] CalculatePx(int[] distance, Vector3 CanvasScale)
     {
-        float angleMin = 5f;  // How many minutes is our view angle? 
+        float angleMin = 5f;  // How many minutes is our view angle? This is defined by the snellen chart.
         float angleDeg = angleMin / 60;
         int[] Px = new int[distance.Length];
         for (int i = 0; i < distance.Length; i++)
