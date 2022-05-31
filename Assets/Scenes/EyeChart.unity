@@ -4514,7 +4514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TextCanvas: {fileID: 1840135701}
   SelectedFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  SelectedColor: {r: 0, g: 0, b: 0, a: 0}
+  SelectedColor: {r: 0, g: 0, b: 0, a: 1}
   RowObjects:
   - {fileID: 1071971862}
   - {fileID: 432673694}

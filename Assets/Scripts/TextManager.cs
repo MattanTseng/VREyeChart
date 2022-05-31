@@ -68,14 +68,12 @@ public class TextManager : MonoBehaviour
         return NewChart;
     }
     //Update text content in whole chart
-    public TextPreset[] UpdateChartContent(string[] Content)
+    public void UpdateChartContent(string[] Content, TextPreset[] NewChart)
     {
-        TextPreset[] NewChart = new TextPreset[Content.Length];
         for (int i = 0; i < Content.Length; i++)
         {
-            NewChart[i] = UpdateRowContent(Content[i]);
+            NewChart[i].TextContent = Content[i];
         }
-        return NewChart;
     }
 
     private void PublishChartClass(TextPreset[] Preset, TMP_Text[] Row)
@@ -116,5 +114,25 @@ public class TextManager : MonoBehaviour
 
         // Return a list of n strings
         return TextContent;
+    }
+
+    public void RefreshLetters()
+    {
+        string[] NewLetters = NewStringContent(RowObjects.Length);
+        TextPreset[] TextPresets = new TextPreset[RowObjects.Length];
+
+        for(int i = 0; i < NewLetters.Length; i++)
+        {
+            Debug.Log(NewLetters[i]);
+        }
+        TextPresets = UpdateChart(FontSizes, SelectedFont, NewLetters, SelectedColor);
+        UpdateChartContent(NewLetters, TextPresets);
+        PublishChartClass(TextPresets, RowObjects);
+
+    }
+
+    public void ThisIsATest(string message)
+    {
+        Debug.Log(message);
     }
 }
