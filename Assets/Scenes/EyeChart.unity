@@ -2544,7 +2544,6 @@ GameObject:
   - component: {fileID: 546847429}
   - component: {fileID: 546847431}
   - component: {fileID: 546847430}
-  - component: {fileID: 546847432}
   m_Layer: 5
   m_Name: RowIndicator
   m_TagString: Untagged
@@ -2561,7 +2560,7 @@ RectTransform:
   m_GameObject: {fileID: 546847428}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.05, y: 0.28, z: 1}
   m_Children: []
   m_Father: {fileID: 1840135705}
   m_RootOrder: 3
@@ -2609,19 +2608,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546847428}
   m_CullTransparentMesh: 1
---- !u!114 &546847432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 546847428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e83484653e08bd469679657b536deaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OldPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &563224060
 GameObject:
   m_ObjectHideFlags: 0
@@ -2905,9 +2891,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
-        m_MethodName: ChangeColor
+      - m_Target: {fileID: 1010529505}
+        m_TargetAssemblyTypeName: TextManager, Assembly-CSharp
+        m_MethodName: ThisIsATest
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4462,6 +4448,7 @@ GameObject:
   - component: {fileID: 1010529504}
   - component: {fileID: 1010529505}
   - component: {fileID: 1010529506}
+  - component: {fileID: 1010529502}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4469,6 +4456,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1010529502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010529501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e83484653e08bd469679657b536deaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IndicatorArrow: {fileID: 546847428}
+  RowParent: {fileID: 1320745940}
+  RowTransforms: []
+  OldPosition: {x: 0, y: 0, z: 0}
+  RowPositions: []
+  SelectedRow: 0
+  RowDropDown: {fileID: 2143625443}
 --- !u!4 &1010529503
 Transform:
   m_ObjectHideFlags: 0
@@ -5027,8 +5033,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Manager, Assembly-CSharp
+      - m_Target: {fileID: 1010529505}
+        m_TargetAssemblyTypeName: TextManager, Assembly-CSharp
         m_MethodName: RefreshLetters
         m_Mode: 1
         m_Arguments:
@@ -7601,7 +7607,19 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1010529501}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &2143625444
 MonoBehaviour:

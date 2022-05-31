@@ -95,7 +95,7 @@ public class Manager : MonoBehaviour
         {
             SelectedRow = RowDropDown.value;
             // call the function from the script attached to the indicator object
-            RowIndicator.GetComponent<IndicatorManager>().RefreshIndicator(RowPositions[SelectedRow]);
+            //RowIndicator.GetComponent<IndicatorManager>().RefreshIndicator(RowPositions[SelectedRow]);
         }
     }
 
