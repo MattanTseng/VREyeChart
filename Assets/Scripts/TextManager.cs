@@ -136,6 +136,15 @@ public class TextManager : MonoBehaviour
         Debug.Log(message);
     }
 
+    public void TextColor() 
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = SelectedColor;
+        }
+
+    }
+
     public void TextRed()
     {
         foreach (TMP_Text row in RowObjects)
