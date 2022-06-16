@@ -135,4 +135,50 @@ public class TextManager : MonoBehaviour
     {
         Debug.Log(message);
     }
+
+    public void TextRed()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.red;
+        }
+    }
+
+    public void TextGreen()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.green;
+        }
+    }
+    public void TextBlue()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.blue;
+        }
+    }
+    public void TextBlack()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.black;
+        }
+    }
+
+    public void TextWhite()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.white;
+        }
+    }
+
+    public void TextYellow()
+    {
+        foreach (TMP_Text row in RowObjects)
+        {
+            row.color = Color.yellow;
+        }
+    }
 }
