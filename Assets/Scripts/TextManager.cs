@@ -16,13 +16,13 @@ public class TextManager : MonoBehaviour
     private Vector3 CanvasScale;
     private string[] ChartContent;
     private int[] FontSizes;
-    //private TextPreset[] TextPresets;
+    private TextPreset[] TextPresets;
 
 
     private void Start()
     {
 
-        TextPreset[] TextPresets = new TextPreset[RowObjects.Length];
+        TextPresets = new TextPreset[RowObjects.Length];
         CanvasScale = TextCanvas.GetComponent<RectTransform>().localScale;
         // In order for the math to work, the y and x scales of the canvas must be equal
 
@@ -131,6 +131,15 @@ public class TextManager : MonoBehaviour
 
     }
 
+    public void ChangeColorPreset()
+    {
+        foreach (TextPreset TextRow in TextPresets)
+        {
+            TextRow.NewColor(SelectedColor);
+        }
+
+    }
+
     public void ThisIsATest(string message)
     {
         Debug.Log(message);
@@ -147,47 +156,41 @@ public class TextManager : MonoBehaviour
 
     public void TextRed()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.red;
-        }
+        SelectedColor = Color.red;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
 
     public void TextGreen()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.green;
-        }
+        SelectedColor = Color.green;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
     public void TextBlue()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.blue;
-        }
+        SelectedColor = Color.blue;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
     public void TextBlack()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.black;
-        }
+        SelectedColor = Color.black;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
 
     public void TextWhite()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.white;
-        }
+        SelectedColor = Color.white;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
 
     public void TextYellow()
     {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = Color.yellow;
-        }
+        SelectedColor = Color.yellow;
+        ChangeColorPreset();
+        PublishChartClass(TextPresets, RowObjects);
     }
 }

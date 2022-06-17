@@ -26,4 +26,9 @@ public class TextPreset
     {
         TextContent = Content;
     }
+
+    public void NewColor(Color ColorChoice)
+    {
+        TextColor = ColorChoice;
+    }
 }
