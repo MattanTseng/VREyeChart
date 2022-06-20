@@ -140,19 +140,9 @@ public class TextManager : MonoBehaviour
 
     }
 
-    public void ThisIsATest(string message)
-    {
-        Debug.Log(message);
-    }
+    // I need to make a function here that looks at a bool operator to know to change the background or text color. 
+    // once it knows what object to modify, it should look at the "SelectedColor" variable to change to the correct color.
 
-    public void TextColor() 
-    {
-        foreach (TMP_Text row in RowObjects)
-        {
-            row.color = SelectedColor;
-        }
-
-    }
 
     public void TextRed()
     {
@@ -193,4 +183,48 @@ public class TextManager : MonoBehaviour
         ChangeColorPreset();
         PublishChartClass(TextPresets, RowObjects);
     }
+
+
+
+    // These functions are called but the color buttons.
+    // they change the value of the public color object
+
+    public void ColorRed()
+    {
+        SelectedColor = Color.red;
+    }
+
+    public void ColorGreen()
+    {
+        SelectedColor = Color.green;
+    }
+
+
+    public void ColorBlue()
+    {
+        SelectedColor = Color.blue;
+    }
+
+
+    public void ColorBlack()
+    {
+        SelectedColor = Color.black;
+    }
+
+
+    public void ColorWhite()
+    {
+        SelectedColor = Color.white;
+    }
+
+    public void ColorYellow()
+    {
+        SelectedColor = Color.yellow;
+    }
+
+
+
+
+
+
 }
