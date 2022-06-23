@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject BackgroundColorsButton;
     public GameObject MainMenuButton;
     public GameObject ColorButtonParent;
+    public GameObject FontSelectionButton;
 
     private void Start()
     {
@@ -22,7 +23,9 @@ public class MenuManager : MonoBehaviour
     // Go to the menu that has the color options
     public void LetterColorMenu()
     {
+
         ColorObject = "Letters";
+        FontSelectionButton.SetActive(false);
         RefreshLettersButton.SetActive(false);
         LetterColorsButton.SetActive(false);
         BackgroundColorsButton.SetActive(false);
@@ -33,6 +36,8 @@ public class MenuManager : MonoBehaviour
     // go to the menu that has the color options.
     public void BackgroundColorMenu()
     {
+        FontSelectionButton.SetActive(false);
+
         // This state will be used to determine which colors to edit
         ColorObject = "Background";
         // Now hide the other menu buttons
@@ -45,9 +50,24 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void FontSelectionMenu()
+    {
+
+        FontSelectionButton.SetActive(false);
+
+        // This state will be used to determine which colors to edit
+        // Now hide the other menu buttons
+        RefreshLettersButton.SetActive(false);
+        LetterColorsButton.SetActive(false);
+        BackgroundColorsButton.SetActive(false);
+        MainMenuButton.SetActive(true);
+    }
+
     // go to the main menu page
     public void ToMainMenu()
     {
+        FontSelectionButton.SetActive(true);
+
         RefreshLettersButton.SetActive(true);
         LetterColorsButton.SetActive(true);
         BackgroundColorsButton.SetActive(true);
