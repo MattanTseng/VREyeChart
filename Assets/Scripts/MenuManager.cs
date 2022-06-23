@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MenuManager : MonoBehaviour
 {
-    private string ColorObject = "Letters";
+    public string ColorObject = "Letters";
     public GameObject RefreshLettersButton;
     public GameObject LetterColorsButton;
     public GameObject BackgroundColorsButton;

@@ -6,6 +6,8 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
+    public GameObject MenuManagerObject;
+    private MenuManager MenuManagerScript;
     public GameObject TextCanvas;
     public TMP_FontAsset SelectedFont;
     public Color SelectedColor;
@@ -21,6 +23,8 @@ public class TextManager : MonoBehaviour
 
     private void Start()
     {
+
+        MenuManagerScript = MenuManagerObject.GetComponent<MenuManager>();
 
         TextPresets = new TextPreset[RowObjects.Length];
         CanvasScale = TextCanvas.GetComponent<RectTransform>().localScale;
@@ -146,85 +150,59 @@ public class TextManager : MonoBehaviour
 
     public void TextRed()
     {
-        SelectedColor = Color.red;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.red;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
 
     public void TextGreen()
     {
-        SelectedColor = Color.green;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.green;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
     public void TextBlue()
     {
-        SelectedColor = Color.blue;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.blue;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
     public void TextBlack()
     {
-        SelectedColor = Color.black;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.black;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
 
     public void TextWhite()
     {
-        SelectedColor = Color.white;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.white;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
 
     public void TextYellow()
     {
-        SelectedColor = Color.yellow;
-        ChangeColorPreset();
-        PublishChartClass(TextPresets, RowObjects);
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = Color.yellow;
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
     }
-
-
-
-    // These functions are called but the color buttons.
-    // they change the value of the public color object
-
-    public void ColorRed()
-    {
-        SelectedColor = Color.red;
-    }
-
-    public void ColorGreen()
-    {
-        SelectedColor = Color.green;
-    }
-
-
-    public void ColorBlue()
-    {
-        SelectedColor = Color.blue;
-    }
-
-
-    public void ColorBlack()
-    {
-        SelectedColor = Color.black;
-    }
-
-
-    public void ColorWhite()
-    {
-        SelectedColor = Color.white;
-    }
-
-    public void ColorYellow()
-    {
-        SelectedColor = Color.yellow;
-    }
-
-
-
-
-
-
 }
