@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     public GameObject MainMenuButton;
     public GameObject ColorButtonParent;
     public GameObject FontSelectionButton;
+    public GameObject FontButtonParent;
 
     private void Start()
     {
@@ -31,6 +32,7 @@ public class MenuManager : MonoBehaviour
         BackgroundColorsButton.SetActive(false);
         MainMenuButton.SetActive(true);
         ColorButtonParent.SetActive(true);
+        FontButtonParent.SetActive(false);
     }
 
     // go to the menu that has the color options.
@@ -47,6 +49,7 @@ public class MenuManager : MonoBehaviour
         MainMenuButton.SetActive(true);
         ColorButtonParent.SetActive(true);
         ColorButtonParent.transform.GetChild(0).gameObject.SetActive(true);
+        FontButtonParent.SetActive(false);
 
     }
 
@@ -61,6 +64,7 @@ public class MenuManager : MonoBehaviour
         LetterColorsButton.SetActive(false);
         BackgroundColorsButton.SetActive(false);
         MainMenuButton.SetActive(true);
+        FontButtonParent.SetActive(true);
     }
 
     // go to the main menu page
@@ -73,5 +77,6 @@ public class MenuManager : MonoBehaviour
         BackgroundColorsButton.SetActive(true);
         MainMenuButton.SetActive(false);
         ColorButtonParent.SetActive(false);
+        FontButtonParent.SetActive(false);
     }
 }
