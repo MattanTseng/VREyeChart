@@ -27,6 +27,14 @@ public class TextPreset
         TextContent = Content;
     }
 
+    public TextPreset(TextPreset Template)
+    {
+        FontSize = Template.FontSize;
+        TextFont = Template.TextFont;
+        TextContent = Template.TextContent;
+        TextColor = Template.TextColor;
+    }
+
     public void NewColor(Color ColorChoice)
     {
         TextColor = ColorChoice;

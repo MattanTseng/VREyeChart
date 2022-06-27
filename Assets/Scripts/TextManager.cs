@@ -14,15 +14,25 @@ public class TextManager : MonoBehaviour
     public TMP_Text[] RowObjects;
     public int[] Distances;
 
-
     private Vector3 CanvasScale;
     private string[] ChartContent;
     private int[] FontSizes;
     private TextPreset[] TextPresets;
 
+    public int SelectedRow;
+
+    private TextPreset InstructionAppearance;
+
+    public TMP_Text Instructions;
+
+
+    public string[] InstructionContent;
 
     private void Start()
     {
+
+        InstructionContent[0] = "Use the options in the menu \n to select the size, color, and \n font that is easiest for you to \n read.";
+        InstructionContent[1] = "Use the buttons to indicate \n which orientation is being \n presented.";
 
         MenuManagerScript = MenuManagerObject.GetComponent<MenuManager>();
 
@@ -125,7 +135,7 @@ public class TextManager : MonoBehaviour
         string[] NewLetters = NewStringContent(RowObjects.Length);
         TextPreset[] TextPresets = new TextPreset[RowObjects.Length];
 
-        for(int i = 0; i < NewLetters.Length; i++)
+        for (int i = 0; i < NewLetters.Length; i++)
         {
             Debug.Log(NewLetters[i]);
         }
@@ -210,6 +220,21 @@ public class TextManager : MonoBehaviour
     {
         this.GetComponent<FontManager>().ChangeFont(TextPresets, Font);
         PublishChartClass(TextPresets, RowObjects);
+    }
+
+    public void UpdateInstructionStyle() 
+    {
+        InstructionAppearance = new TextPreset();
+        InstructionAppearance = TextPresets[SelectedRow];
+        InstructionAppearance.TextContent = InstructionContent[0];
+    }
+
+    public void PublishPreset()
+    {
+            Instructions.fontSize = InstructionAppearance.FontSize;
+            Instructions.text = InstructionAppearance.TextContent;
+            Instructions.font = InstructionAppearance.TextFont;
+            Instructions.color = InstructionAppearance.TextColor;
     }
 
 }
