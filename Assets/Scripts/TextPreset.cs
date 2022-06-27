@@ -31,4 +31,9 @@ public class TextPreset
     {
         TextColor = ColorChoice;
     }
+
+    public void NewFont(TMP_FontAsset FontChoice)
+    {
+        TextFont = FontChoice;
+    }
 }

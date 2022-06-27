@@ -7,23 +7,24 @@ using TMPro;
 public class FontManager : MonoBehaviour
 {
 
-    public TMP_FontAsset LiberationSans;
-    public TMP_FontAsset RobotoMono;
-    public TMP_FontAsset OpticianSans;
+    public TMP_FontAsset[] Fonts;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+
+    public void ChangeFont(TextPreset[] Preset, int FontSelection){
+        if(FontSelection < Fonts.Length)
+        {
+            foreach (TextPreset TP in Preset)
+            {
+                TP.NewFont(Fonts[FontSelection]);
+            }
+        }
+
+        else
+        {
+            Debug.Log("Invalid int value entered");
+
+        }
         
+
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void
-
-
 }

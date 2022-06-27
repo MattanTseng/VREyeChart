@@ -135,6 +135,9 @@ public class TextManager : MonoBehaviour
 
     }
 
+
+
+    //These methods are used to change the color of the text
     public void ChangeColorPreset()
     {
         foreach (TextPreset TextRow in TextPresets)
@@ -143,10 +146,6 @@ public class TextManager : MonoBehaviour
         }
 
     }
-
-    // I need to make a function here that looks at a bool operator to know to change the background or text color. 
-    // once it knows what object to modify, it should look at the "SelectedColor" variable to change to the correct color.
-
 
     public void TextRed()
     {
@@ -205,4 +204,12 @@ public class TextManager : MonoBehaviour
             PublishChartClass(TextPresets, RowObjects);
         }
     }
+
+    //this method is used to change the font of the text. 
+    public void ChangeFont(int Font)
+    {
+        this.GetComponent<FontManager>().ChangeFont(TextPresets, Font);
+        PublishChartClass(TextPresets, RowObjects);
+    }
+
 }
