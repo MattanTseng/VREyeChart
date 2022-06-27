@@ -75,7 +75,7 @@ public class BackgroundManager : MonoBehaviour
 
     public void UpdateInstructionBackground()
     {
-        InstructionMaterial = BackgroundMaterial;
+        InstructionMaterial = BackgroundMaterial.
     }
 
 
