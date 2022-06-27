@@ -9,6 +9,7 @@ public class BackgroundManager : MonoBehaviour
     private MenuManager MenuManagerScript;
 
     public Material BackgroundMaterial;
+    public Material InstructionMaterial;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +71,11 @@ public class BackgroundManager : MonoBehaviour
 
             BackgroundMaterial.SetColor("_Color", Color.yellow);
         }
+    }
+
+    public void UpdateInstructionBackground()
+    {
+        InstructionMaterial = BackgroundMaterial;
     }
 
 

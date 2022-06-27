@@ -16,11 +16,13 @@ public class IndicatorManager : MonoBehaviour
     private int NumChild;
 
     private TextManager GameTextManager;
+    private BackgroundManager GameBackgroundManager;
 
 
     private void Start()
     {
         GameTextManager = this.GetComponent<TextManager>();
+        GameBackgroundManager = this.GetComponent<BackgroundManager>();
         // The number of children corresponds to the number of positions that we will need.
         NumChild = RowParent.transform.childCount;
 
@@ -47,6 +49,7 @@ public class IndicatorManager : MonoBehaviour
             GameTextManager.SelectedRow = SelectedRow;
             GameTextManager.UpdateInstructionStyle();
             GameTextManager.PublishPreset();
+            GameBackgroundManager.UpdateInstructionBackground();
         }
 
         // use the array of row positions that we found and go to the nth entry

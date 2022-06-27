@@ -224,8 +224,7 @@ public class TextManager : MonoBehaviour
 
     public void UpdateInstructionStyle() 
     {
-        InstructionAppearance = new TextPreset();
-        InstructionAppearance = TextPresets[SelectedRow];
+        InstructionAppearance = new TextPreset(TextPresets[SelectedRow]);
         InstructionAppearance.TextContent = InstructionContent[0];
     }
 
