@@ -42,14 +42,15 @@ public class IndicatorManager : MonoBehaviour
     public void UpdateIndicator()
     {
         Vector3 NewPosition;
-        if(RowDropDown.value != SelectedRow)
+        GameTextManager.UpdateInstructionStyle();
+        GameTextManager.PublishPreset();
+        GameBackgroundManager.UpdateInstructionBackground();
+        if (RowDropDown.value != SelectedRow)
         {
             // update which row is being selected.
             SelectedRow = RowDropDown.value;
             GameTextManager.SelectedRow = SelectedRow;
-            GameTextManager.UpdateInstructionStyle();
-            GameTextManager.PublishPreset();
-            GameBackgroundManager.UpdateInstructionBackground();
+
         }
 
         // use the array of row positions that we found and go to the nth entry
