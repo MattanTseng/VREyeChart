@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ * This script is outdated. This was how the application functionality was initially 
+ * developed. Now it has been broken down into many smaller scripts for a more organized application 
+ */
 public class Manager : MonoBehaviour
 {
     // The canvas that has the snellen chart and drop down menu

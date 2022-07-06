@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// This is the most complicated script in the application. 
+// This script 
 
 public class TextManager : MonoBehaviour
 {

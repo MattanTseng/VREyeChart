@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// The indicator manager shows the user which text line they have selected.
 
 public class IndicatorManager : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class IndicatorManager : MonoBehaviour
         OldPosition = IndicatorArrow.GetComponent<RectTransform>().position;
     }
 
+    // this method is run when there is a change to the drop down value in the application
     public void UpdateIndicator()
     {
         Vector3 NewPosition;
