@@ -11,6 +11,7 @@ public class PresetPublisher : MonoBehaviour
 
     public GameObject Background;
     public TMP_FontAsset Text;
+    public TextPreset SelectedPreset;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,6 @@ public class PresetPublisher : MonoBehaviour
 
     public void NewChanges()
     {
-        Text.
+        
     }
 }
