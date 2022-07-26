@@ -13,13 +13,16 @@ public class PresetPublisher : MonoBehaviour
     public TMP_FontAsset Text;
     public TextPreset SelectedPreset;
     // Start is called before the first frame update
+    private TMP_Text ThisText;
     void Start()
     {
-        
+        ThisText = this.GetComponent<TMP_Text>();
     }
 
-    public void NewChanges()
+    public void ApplyPreset()
     {
-        
+        ThisText.fontSize = SelectedPreset.FontSize;
+        ThisText.font = SelectedPreset.TextFont;
+        ThisText.color = SelectedPreset.TextColor;
     }
 }
