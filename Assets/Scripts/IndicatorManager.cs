@@ -19,6 +19,7 @@ public class IndicatorManager : MonoBehaviour
     private TextManager GameTextManager;
     private BackgroundManager GameBackgroundManager;
 
+    // this is a comment
 
     private void Start()
     {
