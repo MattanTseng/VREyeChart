@@ -10,21 +10,51 @@ using TMPro;
 
 public class PresetPublisher : MonoBehaviour
 {
-
-    public GameObject Background;
-    public TMP_FontAsset Text;
+    public TMP_Dropdown RowSelector;
+    private int SelectedRow;
+    public GameObject GameManager;
     public TextPreset SelectedPreset;
+    private TextManager TextManagerScript;
     // Start is called before the first frame update
     private TMP_Text ThisText;
-    void Start()
+    public Material BackgroundMaterial;
+    public Material ReferenceMaterial;
+
+    private void Start()
     {
-        ThisText = this.GetComponent<TMP_Text>();
+
+        //BackgroundMaterial.SetColor("_Color", Color.white);
+        //ThisText.color = Color.black;
+
+        ThisText = this.gameObject.GetComponent<TMP_Text>();
+        TextManagerScript = GameManager.GetComponent<TextManager>();
+
+        ApplyPreset();
     }
 
+
+    private void GetPreset()
+    {
+        SelectedRow = RowSelector.value;
+        print(SelectedRow);
+
+        SelectedPreset = TextManagerScript.TextPresets[SelectedRow];
+        print(SelectedPreset.TextColor);
+    }
     public void ApplyPreset()
     {
+        GetPreset();
+        
         ThisText.fontSize = SelectedPreset.FontSize;
         ThisText.font = SelectedPreset.TextFont;
         ThisText.color = SelectedPreset.TextColor;
+
+        if (BackgroundMaterial != null)
+        {
+            print("Changing the background material");
+            BackgroundMaterial.color = ReferenceMaterial.color;
+        }
     }
+
+
 }

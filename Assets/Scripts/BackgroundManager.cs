@@ -104,6 +104,8 @@ public class BackgroundManager : MonoBehaviour
     }
 
 
+
+    // These are the presets for various common colors
     public void BackgroundRed()
     {
         if(MenuManagerScript.ColorObject == "Background")

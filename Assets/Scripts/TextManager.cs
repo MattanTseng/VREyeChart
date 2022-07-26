@@ -23,7 +23,7 @@ public class TextManager : MonoBehaviour
     private Vector3 CanvasScale;
     private string[] ChartContent;
     private int[] FontSizes;
-    private TextPreset[] TextPresets;
+    public TextPreset[] TextPresets;
 
     public int SelectedRow;
 
@@ -170,6 +170,8 @@ public class TextManager : MonoBehaviour
 
     }
 
+    // the user has the option to change the text to a preset value
+    // or use the sliders to fine tune the color to suit their vision.
     // these are for the color sliders
     public void RedValText()
     {

@@ -45,9 +45,9 @@ public class IndicatorManager : MonoBehaviour
     public void UpdateIndicator()
     {
         Vector3 NewPosition;
-        GameTextManager.UpdateInstructionStyle();
-        GameTextManager.PublishPreset();
-        GameBackgroundManager.UpdateInstructionBackground();
+        //GameTextManager.UpdateInstructionStyle();
+        //GameTextManager.PublishPreset();
+       // GameBackgroundManager.UpdateInstructionBackground();
         if (RowDropDown.value != SelectedRow)
         {
             // update which row is being selected.

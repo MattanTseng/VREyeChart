@@ -217,7 +217,7 @@ RectTransform:
   - {fileID: 2066945231}
   - {fileID: 673092333}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2157,7 +2157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294384098
 GameObject:
@@ -3708,7 +3708,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574197246
 GameObject:
@@ -5146,7 +5146,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 673092335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: PresetPublisher, Assembly-CSharp
+        m_MethodName: ApplyPreset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &673092335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6335,7 +6347,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1010529504
 MonoBehaviour:
@@ -7562,7 +7574,7 @@ RectTransform:
   - {fileID: 1130343090}
   - {fileID: 2137411083}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7891,8 +7903,10 @@ Transform:
   - {fileID: 2060035807}
   - {fileID: 617776081}
   - {fileID: 1558195421}
+  - {fileID: 1694330488}
+  - {fileID: 1497577660}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358874712
 GameObject:
@@ -8730,11 +8744,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497577658}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 8.6, y: 20.51, z: -14.9}
+  m_LocalPosition: {x: 10.871, y: 16.9, z: -19.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1347473784}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1510976492
 GameObject:
@@ -9409,11 +9423,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694330486}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.186, y: 2.104, z: -0.779}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.457, y: -1.5059998, z: -5.639}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1347473784}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1723018786
@@ -9741,7 +9755,7 @@ Transform:
   m_LocalScale: {x: 113.65, y: 117.71821, z: 215.50401}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
 --- !u!1 &1832281137
 GameObject:
@@ -10020,7 +10034,7 @@ RectTransform:
   - {fileID: 2143625442}
   - {fileID: 546847429}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10719,7 +10733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060035806
 GameObject:
@@ -10872,14 +10886,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use the options in the menu
-
-    to select the size, color and
-
-    font
-    that is easiest for you to
-
-    read'
+  m_text: "Use the options in the menu\nto select the size, color and\nfont that
+    is easiest for you to\nread. \n\nPress \"Preview Text\" to see settings applied
+    here.\n\nThe quick brown fox jumps over the lazy dog."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10968,8 +10977,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48796740980f5264f8799ef05a09f6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 0}
-  Text: {fileID: 0}
+  RowSelector: {fileID: 2143625443}
+  GameManager: {fileID: 1010529501}
+  BackgroundMaterial: {fileID: 2100000, guid: 8f87521eff33a6446985b0258dda1ccd, type: 2}
+  ReferenceMaterial: {fileID: 2100000, guid: 5608d52bc73209d4a91396b27a9aa956, type: 2}
 --- !u!1 &2123730819
 GameObject:
   m_ObjectHideFlags: 0
