@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 // This is the most complicated script in the application. 
@@ -8,11 +9,14 @@ using TMPro;
 
 public class TextManager : MonoBehaviour
 {
+    private Color CurrentColor;
+
     public GameObject MenuManagerObject;
     private MenuManager MenuManagerScript;
     public GameObject TextCanvas;
     public TMP_FontAsset SelectedFont;
     public Color SelectedColor;
+    // all of the rows of text are stored in this vector
     public TMP_Text[] RowObjects;
     public int[] Distances;
 
@@ -26,7 +30,12 @@ public class TextManager : MonoBehaviour
     private TextPreset InstructionAppearance;
 
     public TMP_Text Instructions;
+    public TMP_Text RValDisplay, GValDisplay, BValDisplay;
+    public Slider RedSlider;
+    public Slider GreenSlider;
+    public Slider BlueSlider;
 
+    private float ScaledVal;
 
     public string[] InstructionContent;
 
@@ -54,6 +63,8 @@ public class TextManager : MonoBehaviour
         FontSizes = this.GetComponent<PxCalculator>().CalculatePx(Distances, CanvasScale);
 
         TextPresets = UpdateChart(FontSizes, SelectedFont, ChartContent, SelectedColor);
+
+        CurrentColor = SelectedColor;
 
         PublishChartClass(TextPresets, RowObjects);
     }
@@ -159,13 +170,74 @@ public class TextManager : MonoBehaviour
 
     }
 
+    // these are for the color sliders
+    public void RedValText()
+    {
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            print("RedValText");
+            SelectedColor = new Color(RedSlider.value, SelectedColor.g, SelectedColor.b, SelectedColor.a);
+            UpdateDisplayValues();
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
+    }
+    public void GreebValText()
+    {
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = new Color(SelectedColor.r, GreenSlider.value, SelectedColor.b, SelectedColor.a);
+            UpdateDisplayValues();
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
+    }
+    public void BlueValText()
+    {
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            SelectedColor = new Color(SelectedColor.r, SelectedColor.g, BlueSlider.value, SelectedColor.a);
+            UpdateDisplayValues();
+            ChangeColorPreset();
+            PublishChartClass(TextPresets, RowObjects);
+        }
+    }
+
+    private void UpdateDisplayValues()
+    {
+        ScaledVal = Mathf.Floor(RedSlider.value * 255);
+        RValDisplay.text = ScaledVal.ToString();
+
+        ScaledVal = Mathf.Floor(GreenSlider.value * 255);
+        GValDisplay.text = ScaledVal.ToString();
+
+        ScaledVal = Mathf.Floor(BlueSlider.value * 255);
+        BValDisplay.text = ScaledVal.ToString();
+
+
+    }
+
+    public void UpdateSliderValues()
+    {
+        if (MenuManagerScript.ColorObject == "Letters")
+        {
+            RedSlider.value = SelectedColor.r / 255;
+            BlueSlider.value = SelectedColor.b / 255;
+            GreenSlider.value = SelectedColor.g / 255;
+        }
+    }
+
+    // these are the color presets
     public void TextRed()
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.red;
+            RedSlider.value = 1;
+            BlueSlider.value = 0;
+            GreenSlider.value = 0;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
 
@@ -173,27 +245,36 @@ public class TextManager : MonoBehaviour
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.green;
+            RedSlider.value = 0;
+            BlueSlider.value = 0;
+            GreenSlider.value = 1;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
     public void TextBlue()
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.blue;
+            RedSlider.value = 0;
+            BlueSlider.value = 1;
+            GreenSlider.value = 0;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
     public void TextBlack()
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.black;
+            RedSlider.value = 0;
+            BlueSlider.value = 0;
+            GreenSlider.value = 0;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
 
@@ -201,9 +282,12 @@ public class TextManager : MonoBehaviour
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.white;
+            RedSlider.value = 1;
+            BlueSlider.value = 1;
+            GreenSlider.value = 1;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
 
@@ -211,9 +295,12 @@ public class TextManager : MonoBehaviour
     {
         if (MenuManagerScript.ColorObject == "Letters")
         {
-            SelectedColor = Color.yellow;
+            RedSlider.value = 1;
+            BlueSlider.value = 0;
+            GreenSlider.value = 1;
             ChangeColorPreset();
             PublishChartClass(TextPresets, RowObjects);
+            UpdateDisplayValues();
         }
     }
 
@@ -238,4 +325,11 @@ public class TextManager : MonoBehaviour
             Instructions.color = InstructionAppearance.TextColor;
     }
 
+
+    public void SyncSliders()
+    {
+        RedSlider.value = SelectedColor.r;
+        GreenSlider.value = SelectedColor.g;
+        BlueSlider.value = SelectedColor.b;
+    }
 }

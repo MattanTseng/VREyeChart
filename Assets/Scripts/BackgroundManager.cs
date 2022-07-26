@@ -38,30 +38,46 @@ public class BackgroundManager : MonoBehaviour
     }
 
 
-    public void RedVal ()
+    // There are two different ways that the color of the background can be changed. 
+    // there are certain presets that the user can select. 
+    // additionally there are RGB sliders for more fine changes.
+    // at the start of each colorchange method there is an if statment. 
+    // the colorobject is changed in the menu manager. This allows there to be only one set of buttons 
+    // and sliders that can change the color of the text and the background independantly
+
+    public void RedValBackground ()
     {
-        CurrentColor = new Color(RedSlider.value, CurrentColor.g, CurrentColor.b, CurrentColor.a);
-        BackgroundMaterial.SetColor("_Color", CurrentColor);
-        UpdateValueDisplay();
+        if (MenuManagerScript.ColorObject == "Background")
+        {
+            CurrentColor = new Color(RedSlider.value, CurrentColor.g, CurrentColor.b, CurrentColor.a);
+            BackgroundMaterial.SetColor("_Color", CurrentColor);
+            UpdateValueDisplay();
+        }
     }
 
-    public void GreenVal()
+    public void GreenValBackground()
     {
-        CurrentColor = new Color(CurrentColor.r, GreenSlider.value, CurrentColor.b, CurrentColor.a);
-        BackgroundMaterial.SetColor("_Color", CurrentColor);
-        UpdateValueDisplay();
+        if (MenuManagerScript.ColorObject == "Background")
+        {
+            CurrentColor = new Color(CurrentColor.r, GreenSlider.value, CurrentColor.b, CurrentColor.a);
+            BackgroundMaterial.SetColor("_Color", CurrentColor);
+            UpdateValueDisplay();
+        }
     }
 
 
 
-    public void BlueVal()
+    public void BlueValBackground()
     {
-        CurrentColor = new Color(CurrentColor.r, CurrentColor.g, BlueSlider.value, CurrentColor.a);
-        BackgroundMaterial.SetColor("_Color", CurrentColor);
-        UpdateValueDisplay();
+        if (MenuManagerScript.ColorObject == "Background")
+        {
+            CurrentColor = new Color(CurrentColor.r, CurrentColor.g, BlueSlider.value, CurrentColor.a);
+            BackgroundMaterial.SetColor("_Color", CurrentColor);
+            UpdateValueDisplay();
+        }
     }
 
-    private void UpdateValueDisplay()
+    public void UpdateValueDisplay()
     {
         ScaledVal = Mathf.Floor(RedSlider.value * 255);
         RValDisplay.text = ScaledVal.ToString();
@@ -160,5 +176,10 @@ public class BackgroundManager : MonoBehaviour
         UpdateValueDisplay();
     }
 
-
+    public void SyncSliders()
+    {
+        RedSlider.value = CurrentColor.r;
+        GreenSlider.value = CurrentColor.g;
+        BlueSlider.value = CurrentColor.b;
+    }
 }

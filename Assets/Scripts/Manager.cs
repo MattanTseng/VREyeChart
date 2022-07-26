@@ -7,7 +7,7 @@ using TMPro;
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  * This script is outdated. This was how the application functionality was initially 
- * developed. Now it has been broken down into many smaller scripts for a more organized application 
+ * developed. Now it has been broken down into many smaller scripts for a more elegant application 
  */
 public class Manager : MonoBehaviour
 {

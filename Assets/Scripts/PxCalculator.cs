@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// PxCalculator determines the px height of the text for the letters to be 5' tall
+
 public class PxCalculator : MonoBehaviour
 {
     // Enter the distance in feet

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Camera look is only used for the desktop version of the application. 
+// moves the viewing camera to follow the mouse.
 public class CameraLook : MonoBehaviour
 {
     public GameObject Viewer;

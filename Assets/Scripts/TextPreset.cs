@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-//[Serializable]
-
+// this class holds the information for the different rows on the chart. 
+// Each row will have different characteristics depending on the size.
 public class TextPreset
 {
     public int FontSize;// = 12;

@@ -22,6 +22,8 @@ public class MenuManager : MonoBehaviour
     // The only difference is that each function changes the value of the color object string. 
     // The value of the colorobject determines what the color buttons modify.
     // Go to the menu that has the color options
+
+    // This is where the user can change the color of the text
     public void LetterColorMenu()
     {
 
@@ -35,7 +37,7 @@ public class MenuManager : MonoBehaviour
         FontButtonParent.SetActive(false);
     }
 
-    // go to the menu that has the color options.
+    // This is where the user can change the color of the background
     public void BackgroundColorMenu()
     {
         FontSelectionButton.SetActive(false);
@@ -53,6 +55,7 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    // this is where the user can select the font
     public void FontSelectionMenu()
     {
 
@@ -67,7 +70,7 @@ public class MenuManager : MonoBehaviour
         FontButtonParent.SetActive(true);
     }
 
-    // go to the main menu page
+    // Return the user to the main menu
     public void ToMainMenu()
     {
         FontSelectionButton.SetActive(true);

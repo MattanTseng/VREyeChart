@@ -19,7 +19,7 @@ public class IndicatorManager : MonoBehaviour
     private TextManager GameTextManager;
     private BackgroundManager GameBackgroundManager;
 
-    
+    // The indicator manager moves the arrow that selects the row of text that the user wants
 
     private void Start()
     {

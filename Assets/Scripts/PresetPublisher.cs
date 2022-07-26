@@ -5,6 +5,8 @@ using System;
 using TMPro;
 
 
+// preset publisher will take the preset that the user has selected and apply the settings to the text that
+// the script is attached to
 
 public class PresetPublisher : MonoBehaviour
 {
