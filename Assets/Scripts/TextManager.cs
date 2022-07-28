@@ -20,7 +20,7 @@ public class TextManager : MonoBehaviour
     public TMP_Text[] RowObjects;
     public int[] Distances;
 
-    private Vector3 CanvasScale;
+    public Vector3 CanvasScale;
     private string[] ChartContent;
     private int[] FontSizes;
     public TextPreset[] TextPresets;
@@ -37,11 +37,14 @@ public class TextManager : MonoBehaviour
 
     private float ScaledVal;
 
+    public string test;
+
     public string[] InstructionContent;
 
-    private void Start()
+    private void Awake()
     {
 
+        test = "This is a test";
         InstructionContent[0] = "Use the options in the menu \n to select the size, color, and \n font that is easiest for you to \n read.";
         InstructionContent[1] = "Use the buttons to indicate \n which orientation is being \n presented.";
 

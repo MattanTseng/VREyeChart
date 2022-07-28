@@ -10,24 +10,43 @@ using TMPro;
 
 public class PresetPublisher : MonoBehaviour
 {
+    public Camera Viewer;
+    public Canvas DisplayCanvas;
+    private Vector3 CanvasPosition;
+    private Vector3 CameraPosition;
+    private Vector3 CanvasScale;
+    private float ViewingDistance;
+    private float theta;
+    private float TextHeightMeters;
+    private float TextHeighPx;
+
     public TMP_Dropdown RowSelector;
     private int SelectedRow;
     public GameObject GameManager;
-    public TextPreset SelectedPreset;
+    private TextPreset SelectedPreset;
     private TextManager TextManagerScript;
     // Start is called before the first frame update
     private TMP_Text ThisText;
     public Material BackgroundMaterial;
     public Material ReferenceMaterial;
+    private float LetterSuperiorityScaling;
 
     private void Start()
     {
 
         //BackgroundMaterial.SetColor("_Color", Color.white);
         //ThisText.color = Color.black;
+        CanvasScale = DisplayCanvas.GetComponent<RectTransform>().localScale;
+        // In order for the math to work, the y and x scales of the canvas must be equal
+
+        if (CanvasScale.x != CanvasScale.y)
+        {
+            Debug.Log("PresetPublisher.cs WARNING: DisplayCanvas is not scaled correctly. Must be a square.");
+        }
 
         ThisText = this.gameObject.GetComponent<TMP_Text>();
         TextManagerScript = GameManager.GetComponent<TextManager>();
+
 
         ApplyPreset();
     }
@@ -44,8 +63,10 @@ public class PresetPublisher : MonoBehaviour
     public void ApplyPreset()
     {
         GetPreset();
-        
-        ThisText.fontSize = SelectedPreset.FontSize;
+        // The letter superiority effect means that letters must be scaled up by 20% to be read with the same efficacy
+        CalcFontHeight();
+
+        ThisText.fontSize = TextHeighPx;
         ThisText.font = SelectedPreset.TextFont;
         ThisText.color = SelectedPreset.TextColor;
 
@@ -54,6 +75,20 @@ public class PresetPublisher : MonoBehaviour
             print("Changing the background material");
             BackgroundMaterial.color = ReferenceMaterial.color;
         }
+    }
+
+    private void CalcFontHeight()
+    {
+        theta = 2*Mathf.Atan((0.5f * SelectedPreset.FontSize * TextManagerScript.CanvasScale.x) /6f);
+        CameraPosition = Viewer.transform.position;
+        CanvasPosition = DisplayCanvas.transform.position;
+
+        ViewingDistance = Vector3.Distance(CameraPosition, CanvasPosition);
+
+        TextHeightMeters = Mathf.Tan(theta) * ViewingDistance;
+        TextHeighPx =TextHeightMeters/CanvasScale.x;
+        LetterSuperiorityScaling = 0.2f * TextHeighPx;
+        TextHeighPx += LetterSuperiorityScaling;
     }
 
 

@@ -12,6 +12,8 @@ public class TextPreset
     public TMP_FontAsset TextFont;
     public string TextContent;// = "ERROR";
     public Color TextColor;// = Color.red;
+    public float theta; // This is the veiwing angle of the preset
+
 
     //Here is the constructor for our class
     public TextPreset(int Size, TMP_FontAsset Font, string Content, Color color)

@@ -210,19 +210,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17089595}
-  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: 0, y: 0, z: 1.666}
   m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
   m_Children:
   - {fileID: 2066945231}
   - {fileID: 673092333}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.5, y: 2}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: -3.539, y: 2}
+  m_SizeDelta: {x: 1054.59, y: 871.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &19377823
 GameObject:
@@ -5100,7 +5100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -404}
+  m_AnchoredPosition: {x: 0, y: -540.3}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &673092334
@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2066945234}
         m_TargetAssemblyTypeName: PresetPublisher, Assembly-CSharp
         m_MethodName: ApplyPreset
         m_Mode: 1
@@ -6398,6 +6398,7 @@ MonoBehaviour:
   - {fileID: 658523777}
   - {fileID: 1462641819}
   Distances: c8000000640000004600000032000000280000001e00000019000000140000000f0000000d0000000a000000
+  CanvasScale: {x: 0, y: 0, z: 0}
   SelectedRow: 0
   Instructions: {fileID: 2066945232}
   RValDisplay: {fileID: 1670272764}
@@ -6406,6 +6407,7 @@ MonoBehaviour:
   RedSlider: {fileID: 612297432}
   GreenSlider: {fileID: 1366795417}
   BlueSlider: {fileID: 1595858873}
+  test: 
   InstructionContent:
   - Use the options in the menu \n to select the size, color, and \n font that is
     easiest for you to \n read
@@ -9750,13 +9752,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808932795}
-  m_LocalRotation: {x: 0, y: -0.5, z: 0, w: 0.8660254}
-  m_LocalPosition: {x: 3.4999, y: 2, z: 2}
-  m_LocalScale: {x: 113.65, y: 117.71821, z: 215.50401}
+  m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
+  m_LocalPosition: {x: -3.5391002, y: 2, z: 1.666}
+  m_LocalScale: {x: 113.65, y: 173.14, z: 215.50401}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: -60, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
 --- !u!1 &1832281137
 GameObject:
   m_ObjectHideFlags: 0
@@ -9951,7 +9953,7 @@ GameObject:
   - component: {fileID: 1840135703}
   - component: {fileID: 1840135702}
   m_Layer: 5
-  m_Name: Canvas (Chart)
+  m_Name: Canvas (SnellenChart)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10977,6 +10979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48796740980f5264f8799ef05a09f6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Viewer: {fileID: 19377825}
+  DisplayCanvas: {fileID: 17089598}
   RowSelector: {fileID: 2143625443}
   GameManager: {fileID: 1010529501}
   BackgroundMaterial: {fileID: 2100000, guid: 8f87521eff33a6446985b0258dda1ccd, type: 2}
